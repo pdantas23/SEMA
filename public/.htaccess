@@ -1,0 +1,66 @@
+# =============================================================================
+# SEMA — site estático (Next export) na Hostinger (Apache)
+# Este arquivo é copiado para /public e sai no build dentro de out/.
+# Faça upload do CONTEÚDO de out/ para a pasta public_html do domínio.
+# =============================================================================
+
+# ----- HTTPS + canonical (sem www) -----
+RewriteEngine On
+
+# Força HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# www -> raiz (https://sema.adv.br)
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# ----- SPA: páginas de detalhe (slug dinâmico resolvido no client via API) -----
+# Qualquer /blog/<slug>/ que não seja arquivo/pasta real cai no shell, que lê o
+# slug da URL e busca o conteúdo na API. Assim, publicar um post novo aparece na
+# hora — sem rebuild. As listas (/blog/, /noticias/, /eventos/) são pastas reais
+# e continuam sendo servidas normalmente.
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^blog/[^/]+/?$ /blog/_/index.html [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^noticias/[^/]+/?$ /noticias/_/index.html [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^eventos/[^/]+/?$ /eventos/_/index.html [L]
+
+# ----- Páginas de erro -----
+ErrorDocument 404 /404.html
+
+# ----- Cache de assets estáticos -----
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType font/woff2 "access plus 1 year"
+  # HTML sempre revalida (conteúdo dinâmico vem da API, mas o shell pode mudar)
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Imutáveis para os assets versionados do Next
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|woff2|jpg|jpeg|png|webp|svg)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # Segurança básica
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+# ----- Compressão -----
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>

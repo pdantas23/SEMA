@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+/*
+  SEMA — SALHA ESCÓRCIO MENDES ADVOGADOS
+  Identidade visual (Manual de ID). Tom: sóbrio, técnico, confiável.
+  Tipografia única: Montserrat. Paleta institucional (azuis).
+*/
+
+:root {
+  /* Paleta da marca (Manual de ID Visual) */
+  --branco-gelo: #f0f8fc;
+  --azul-claro: #6cb8e8;
+  --azul-lavanda: #6770ad;
+  --azul-petroleo: #343857;
+
+  /* Papéis semânticos */
+  --background: var(--branco-gelo);
+  --foreground: var(--azul-petroleo);
+  --primary: var(--azul-petroleo);
+  --secondary: var(--azul-lavanda);
+  --accent: var(--azul-claro);
+  --surface: #ffffff;
+  --border: #dfe7ee;
+  --muted: #6b7280;
+}
+
+@theme inline {
+  /* Cores da marca como utilitários Tailwind (bg-azul-petroleo, text-azul-claro, …) */
+  --color-branco-gelo: var(--branco-gelo);
+  --color-azul-claro: var(--azul-claro);
+  --color-azul-lavanda: var(--azul-lavanda);
+  --color-azul-petroleo: var(--azul-petroleo);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+
+  /* Tipografia única da marca */
+  --font-sans: var(--font-montserrat);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Contenção de layout sem quebrar sticky (blueprint §5) */
+.page-root {
+  overflow-x: clip;
+}
+
+/* Pulso do botão flutuante de WhatsApp (anel que expande e some) */
+@keyframes wa-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+.wa-pulse {
+  animation: wa-pulse 2s ease-out infinite;
+}
+
+/* Respeita preferência de movimento reduzido (blueprint §5) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Tipografia de conteúdo (corpo dos posts/notícias) */
+.prose-sema {
+  color: var(--azul-petroleo);
+  line-height: 1.75;
+}
+.prose-sema h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin: 2rem 0 0.75rem;
+  color: var(--azul-petroleo);
+}
+.prose-sema h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.5rem;
+  color: var(--azul-lavanda);
+}
+.prose-sema p {
+  margin: 0 0 1rem;
+}
+.prose-sema a {
+  color: var(--azul-lavanda);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.prose-sema ul,
+.prose-sema ol {
+  margin: 0 0 1rem 1.25rem;
+  list-style: revert;
+}
+.prose-sema blockquote {
+  border-left: 3px solid var(--azul-claro);
+  padding-left: 1rem;
+  color: var(--muted);
+  font-style: italic;
+  margin: 1.25rem 0;
+}

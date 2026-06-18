@@ -1,0 +1,26 @@
+# Compose para rodar a API localmente ou em servidores Docker simples.
+# No EasyPanel você pode usar este compose OU apontar para o Dockerfile direto.
+services:
+  sema-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: sema-api:latest
+    container_name: sema-api
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      PORT: 8080
+      APP_DOMAIN: ${APP_DOMAIN:-sema.adv.br}
+      SITE_URL: ${SITE_URL:-https://sema.adv.br}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://sema.adv.br,https://www.sema.adv.br}
+      SUPABASE_URL: ${SUPABASE_URL}
+      SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
+      SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY}
+      SUPABASE_STORAGE_BUCKET: ${SUPABASE_STORAGE_BUCKET:-sema-media}
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
