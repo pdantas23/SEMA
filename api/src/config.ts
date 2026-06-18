@@ -1,4 +1,10 @@
-import "dotenv/config";
+import dotenv from "dotenv";
+
+// Dev local: carrega .env.development.local (precedência) e .env (fallback).
+// dotenv não sobrescreve variáveis já definidas, então em PRODUÇÃO (EasyPanel),
+// onde as envs são injetadas direto e não há arquivo, isto é um no-op seguro.
+dotenv.config({ path: ".env.development.local" });
+dotenv.config();
 
 /** Domínio raiz do projeto (ex.: sema.adv.br). */
 export const APP_DOMAIN = process.env.APP_DOMAIN ?? "sema.adv.br";
