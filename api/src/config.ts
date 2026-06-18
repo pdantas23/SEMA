@@ -20,7 +20,7 @@ export const ALLOWED_ORIGINS = (
   .filter(Boolean)
   .concat(["http://localhost:3000", "http://localhost:3001"]);
 
-export const PORT = Number(process.env.PORT ?? 8080);
+export const PORT = Number(process.env.PORT ?? 3001);
 
 export const SUPABASE_URL =
   process.env.SUPABASE_URL ?? process.env.NEXT_PUBLIC_SUPABASE_URL ?? "";
