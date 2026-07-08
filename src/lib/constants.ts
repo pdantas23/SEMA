@@ -5,8 +5,8 @@
  */
 
 export const SITE = {
-  name: "Salha Escórcio Mendes Advogados",
-  shortName: "SEMA",
+  name: "Salha, Escórcio, Napoleão e Mendes Advogados",
+  shortName: "SENMA",
   tagline: "Advocacia técnica, estratégica e especializada",
   description:
     "Escritório de advocacia técnico e especializado em Direito Tributário, Empresarial e Ambiental, com atuação voltada a grandes empresas e ao agronegócio no Piauí, Maranhão e em todo o Brasil.",

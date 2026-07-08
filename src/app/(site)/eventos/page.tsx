@@ -24,7 +24,7 @@ export default function EventosPage() {
           </p>
           <h1 className={typography.h1}>Eventos</h1>
           <p className={cn(typography.lead, "max-w-2xl")}>
-            O escritório SEMA Advogados participa ativamente de eventos jurídicos,
+            O escritório SENMA Advogados participa ativamente de eventos jurídicos,
             congressos e iniciativas que refletem nosso compromisso com a excelência
             técnica e o desenvolvimento do direito.
           </p>

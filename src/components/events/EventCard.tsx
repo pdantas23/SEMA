@@ -47,7 +47,7 @@ export function EventCard({ event, className }: EventCardProps) {
           ) : (
             <div className="flex h-full items-center justify-center">
               <span className="select-none text-4xl font-extrabold text-azul-lavanda/30">
-                SEMA
+                SENMA
               </span>
             </div>
           )}

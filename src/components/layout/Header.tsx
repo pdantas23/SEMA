@@ -38,7 +38,7 @@ export function Header() {
         <Link href="/" className="mx-auto lg:mx-0 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-azul-lavanda rounded">
           <Image
             src={assetPath("/logo-sema.png")}
-            alt="SEMA — Salha Escórcio Mendes Advogados"
+            alt="SENMA — Salha, Escórcio, Napoleão e Mendes Advogados"
             width={140}
             height={40}
             className="h-9 w-auto object-contain"

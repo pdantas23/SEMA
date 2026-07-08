@@ -23,7 +23,7 @@ export function OfficeSection() {
 
         <div className="mt-6 space-y-5">
           <p className={typography.lead}>
-            Fundado em 2017, o escritório Salha, Escórcio e Mendes Advogados está
+            Fundado em 2017, o escritório Salha, Escórcio, Napoleão e Mendes Advogados está
             preparado para atender às mais elevadas expectativas de pessoas físicas
             e empresas em assuntos jurídicos. É formado por advogados qualificados
             e com rica experiência no contencioso administrativo e judicial nas

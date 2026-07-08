@@ -102,7 +102,7 @@ export default function AdminDashboardPage() {
       <div>
         <h1 className="text-2xl font-bold text-azul-petroleo">Dashboard</h1>
         <p className="mt-1 text-sm text-muted">
-          Visão geral do conteúdo do site SEMA.
+          Visão geral do conteúdo do site SENMA.
         </p>
       </div>
 

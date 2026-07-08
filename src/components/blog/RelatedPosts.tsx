@@ -43,7 +43,7 @@ export function RelatedPosts({ posts }: RelatedPostsProps) {
                   ) : (
                     <div className="flex h-full items-center justify-center">
                       <span className="text-2xl font-extrabold text-azul-lavanda/30 select-none">
-                        SEMA
+                        SENMA
                       </span>
                     </div>
                   )}

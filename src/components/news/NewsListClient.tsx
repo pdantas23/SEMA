@@ -32,7 +32,7 @@ export function NewsListClient() {
   if (news.length === 0) {
     return (
       <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-border bg-surface py-20 text-center">
-        <span className="text-5xl font-extrabold text-azul-lavanda/20 select-none">SEMA</span>
+        <span className="text-5xl font-extrabold text-azul-lavanda/20 select-none">SENMA</span>
         <p className={cn(typography.body, "mt-4")}>Nenhuma notícia publicada no momento.</p>
         <p className="mt-1 text-sm text-muted">Volte em breve para novas atualizações.</p>
       </div>

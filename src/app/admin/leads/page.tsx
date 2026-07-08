@@ -102,7 +102,7 @@ function montarLinkWhatsApp(lead: Lead): string {
   if (!telefone) return "";
   const nome = lead.nome || "tudo bem";
   const necessidade = lead.necessidade || "não informada";
-  const msg = `Olá ${nome}! Vi seu cadastro no formulário da SEMA. Necessidade informada: ${necessidade}. Como posso te ajudar?`;
+  const msg = `Olá ${nome}! Vi seu cadastro no formulário da SENMA. Necessidade informada: ${necessidade}. Como posso te ajudar?`;
   return `https://wa.me/${telefone}?text=${encodeURIComponent(msg)}`;
 }
 
@@ -275,7 +275,7 @@ export default function LeadsPage() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `leads-sema-${new Date().toISOString().slice(0, 10)}.csv`;
+    a.download = `leads-senma-${new Date().toISOString().slice(0, 10)}.csv`;
     a.click();
     URL.revokeObjectURL(url);
     notify(`${leadsFiltrados.length} leads exportados.`);

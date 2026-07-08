@@ -38,7 +38,7 @@ export function PostCard({ post, category, className }: PostCardProps) {
           ) : (
             <div className="flex h-full items-center justify-center">
               <span className="text-4xl font-extrabold text-azul-lavanda/30 select-none">
-                SEMA
+                SENMA
               </span>
             </div>
           )}

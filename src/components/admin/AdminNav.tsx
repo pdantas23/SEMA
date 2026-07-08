@@ -54,7 +54,7 @@ export function AdminNav({ role, userEmail, onLogout }: AdminNavProps) {
           S
         </div>
         <div>
-          <div className="text-sm font-bold leading-tight">SEMA Admin</div>
+          <div className="text-sm font-bold leading-tight">SENMA Admin</div>
           <div className="text-xs text-white/50 capitalize">{role ?? "—"}</div>
         </div>
       </div>

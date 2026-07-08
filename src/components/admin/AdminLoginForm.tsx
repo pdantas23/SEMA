@@ -31,7 +31,7 @@ export function AdminLoginForm({ onLogin, loading }: AdminLoginFormProps) {
           <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-azul-petroleo font-extrabold text-white text-lg">
             S
           </div>
-          <h1 className="text-xl font-bold text-azul-petroleo">Painel SEMA</h1>
+          <h1 className="text-xl font-bold text-azul-petroleo">Painel SENMA</h1>
           <p className="mt-1 text-sm text-muted">Acesso restrito à equipe</p>
         </div>
 
