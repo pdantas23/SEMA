@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { SITE } from "@/lib/constants";
+import { canonicalUrl } from "@/lib/seo";
 import {
   getAllPostSlugs,
   getAllNewsSlugs,
@@ -11,7 +11,8 @@ export const dynamic = "force-static";
 // Sitemap estático (gerado no build). Inclui rotas fixas + conteúdo publicado.
 // O slug-sentinela "sem-conteudo" (empty-guard) é ignorado.
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = SITE.url;
+  // canonicalUrl aplica a barra final (trailingSlash: true) — o sitemap precisa
+  // apontar para a MESMA URL declarada no <link rel="canonical"> de cada página.
   const staticRoutes = [
     "",
     "/blog",
@@ -20,7 +21,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/contato",
     "/politica-de-privacidade",
   ].map((path) => ({
-    url: `${base}${path}`,
+    url: canonicalUrl(path || "/"),
     changeFrequency: "weekly" as const,
     priority: path === "" ? 1 : 0.7,
   }));
@@ -38,7 +39,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...news.filter(clean).map((s) => `/noticias/${s}`),
     ...events.filter(clean).map((s) => `/eventos/${s}`),
   ].map((path) => ({
-    url: `${base}${path}`,
+    url: canonicalUrl(path),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));

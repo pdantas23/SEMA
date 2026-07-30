@@ -3,15 +3,19 @@ import { Suspense } from "react";
 import { container, section, typography } from "@/lib/design/tokens";
 import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/constants";
+import { OG_DEFAULT, canonicalUrl } from "@/lib/seo";
 import { BlogListClient } from "@/components/blog/BlogListClient";
 
 export const metadata: Metadata = {
   title: "Blog",
   description: `Artigos técnicos, análises e atualizações jurídicas da ${SITE.name}.`,
+  alternates: { canonical: canonicalUrl("/blog") },
   openGraph: {
+    url: canonicalUrl("/blog"),
     title: `Blog | ${SITE.shortName}`,
     description: `Conteúdo especializado em Direito Tributário, Empresarial e Ambiental — ${SITE.name}.`,
     type: "website",
+    images: [OG_DEFAULT],
   },
 };
 

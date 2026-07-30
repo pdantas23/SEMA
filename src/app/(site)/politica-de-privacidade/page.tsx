@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE, CONTACT } from "@/lib/constants";
+import { canonicalUrl } from "@/lib/seo";
 import { containerNarrow, containerHero, section, typography } from "@/lib/design/tokens";
 import { cn } from "@/lib/utils";
 import { ArrowLeft } from "lucide-react";
@@ -8,6 +9,7 @@ import { ArrowLeft } from "lucide-react";
 export const metadata: Metadata = {
   title: "Política de Privacidade",
   description: `Política de Privacidade e tratamento de dados pessoais da ${SITE.name}, em conformidade com a LGPD.`,
+  alternates: { canonical: canonicalUrl("/politica-de-privacidade") },
   robots: { index: false, follow: false },
 };
 

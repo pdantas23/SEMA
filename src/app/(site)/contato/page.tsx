@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { SITE, CONTACT, SOCIAL } from "@/lib/constants";
+import { canonicalUrl } from "@/lib/seo";
 import { whatsappLink, WHATSAPP_MESSAGES } from "@/lib/whatsapp";
 import {
   container,
@@ -17,6 +18,7 @@ import { ContactForm } from "./ContactForm";
 export const metadata: Metadata = {
   title: "Contato",
   description: `Entre em contato com a ${SITE.name}. Formulário, WhatsApp, e-mail e endereço.`,
+  alternates: { canonical: canonicalUrl("/contato") },
 };
 
 export default function ContatoPage() {

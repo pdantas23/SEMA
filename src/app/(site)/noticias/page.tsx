@@ -2,15 +2,19 @@ import type { Metadata } from "next";
 import { container, section, typography } from "@/lib/design/tokens";
 import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/constants";
+import { OG_DEFAULT, canonicalUrl } from "@/lib/seo";
 import { NewsListClient } from "@/components/news/NewsListClient";
 
 export const metadata: Metadata = {
   title: "Notícias",
   description: `Fique atualizado com as últimas notícias jurídicas e institucionais da ${SITE.name}.`,
+  alternates: { canonical: canonicalUrl("/noticias") },
   openGraph: {
+    url: canonicalUrl("/noticias"),
     title: `Notícias | ${SITE.shortName}`,
     description: `Atualizações jurídicas, legislativas e institucionais — ${SITE.name}.`,
     type: "website",
+    images: [OG_DEFAULT],
   },
 };
 

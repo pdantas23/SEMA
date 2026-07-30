@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { SITE } from "@/lib/constants";
+import { OG_DEFAULT } from "@/lib/seo";
 import { assetPath } from "@/lib/utils";
 
 // Tipografia única da marca (Manual de ID): Montserrat.
@@ -33,8 +34,19 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_BR",
     siteName: SITE.name,
+    url: SITE.url,
     title: `${SITE.name} — ${SITE.tagline}`,
     description: SITE.description,
+    // Card institucional (identidade visual) — herdado por toda página que não
+    // define imagem própria. Sem isso o WhatsApp escolhe sozinho e acaba
+    // pegando o favicon quadrado.
+    images: [OG_DEFAULT],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE.name} — ${SITE.tagline}`,
+    description: SITE.description,
+    images: [OG_DEFAULT.url],
   },
   robots: { index: true, follow: true },
   icons: { icon: assetPath("/favicon.png") },

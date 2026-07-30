@@ -38,12 +38,27 @@ export function setSession(s: Session | null) {
 }
 
 /* ------------------------------ Leitura pública ----------------------------- */
-export async function apiGet<T>(path: string, fallback: T): Promise<T> {
+/**
+ * Leitura feita durante `next build` (generateMetadata / generateStaticParams).
+ *
+ * Precisa ser cacheável: com `no-store` o Next aborta a geração estática
+ * (NEXT_STATIC_GEN_BAILOUT) e a página sai sem os dados — foi o que fazia os
+ * cards de compartilhamento nascerem todos genéricos. O `prebuild` apaga
+ * `.next/`, então cada build busca conteúdo fresco mesmo assim.
+ */
+export const BUILD_READ = { cache: "force-cache" as const };
+
+export async function apiGet<T>(
+  path: string,
+  fallback: T,
+  opts: { cache?: RequestCache } = {}
+): Promise<T> {
   if (!API_URL) return fallback;
   try {
     const res = await fetch(`${API_URL}${path}`, {
       headers: { "Content-Type": "application/json" },
-      cache: "no-store",
+      // Padrão no browser: sempre fresco. No build, passe BUILD_READ.
+      cache: opts.cache ?? "no-store",
     });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     return (await res.json()) as T;

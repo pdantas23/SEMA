@@ -1,4 +1,4 @@
-import { apiGet, apiPost } from "@/lib/api/client";
+import { apiGet, apiPost, BUILD_READ } from "@/lib/api/client";
 import type {
   Post,
   NewsItem,
@@ -87,6 +87,35 @@ export function getEventBySlug(slug: string): Promise<EventItem | null> {
 
 export function getAllEventSlugs(): Promise<string[]> {
   return apiGet<string[]>("/content/events/slugs", []);
+}
+
+/* ------------------------- Leitura no build (SEO) -------------------------
+ * Usadas só em generateMetadata, para montar os cards de compartilhamento.
+ * Idênticas às de cima, mas com fetch cacheável (BUILD_READ) — obrigatório
+ * em rota estática, senão o Next aborta a geração e o dado chega nulo.
+ * ------------------------------------------------------------------------ */
+export function getPostBySlugAtBuild(slug: string): Promise<Post | null> {
+  return apiGet<Post | null>(
+    `/content/posts/slug/${encodeURIComponent(slug)}`,
+    null,
+    BUILD_READ
+  );
+}
+
+export function getNewsBySlugAtBuild(slug: string): Promise<NewsItem | null> {
+  return apiGet<NewsItem | null>(
+    `/content/news/slug/${encodeURIComponent(slug)}`,
+    null,
+    BUILD_READ
+  );
+}
+
+export function getEventBySlugAtBuild(slug: string): Promise<EventItem | null> {
+  return apiGet<EventItem | null>(
+    `/content/events/slug/${encodeURIComponent(slug)}`,
+    null,
+    BUILD_READ
+  );
 }
 
 /* ---------------------------- Áreas / Equipe ---------------------------- */

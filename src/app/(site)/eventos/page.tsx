@@ -2,15 +2,19 @@ import type { Metadata } from "next";
 import { container, section, typography } from "@/lib/design/tokens";
 import { cn } from "@/lib/utils";
 import { SITE } from "@/lib/constants";
+import { OG_DEFAULT, canonicalUrl } from "@/lib/seo";
 import { EventsListClient } from "@/components/events/EventsListClient";
 
 export const metadata: Metadata = {
   title: "Eventos",
   description: `Confira os eventos, participações e presença institucional da ${SITE.name}.`,
+  alternates: { canonical: canonicalUrl("/eventos") },
   openGraph: {
+    url: canonicalUrl("/eventos"),
     title: `Eventos | ${SITE.shortName}`,
     description: `Seminários, congressos e iniciativas institucionais — ${SITE.name}.`,
     type: "website",
+    images: [OG_DEFAULT],
   },
 };
 
