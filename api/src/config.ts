@@ -6,8 +6,8 @@ import dotenv from "dotenv";
 dotenv.config({ path: ".env.development.local" });
 dotenv.config();
 
-/** Domínio raiz do projeto (ex.: sema.adv.br). */
-export const APP_DOMAIN = process.env.APP_DOMAIN ?? "sema.adv.br";
+/** Domínio raiz do projeto (ex.: senma.adv.br). */
+export const APP_DOMAIN = process.env.APP_DOMAIN ?? "senma.adv.br";
 
 /** URL pública do site (front estático na Hostinger). */
 export const SITE_URL = process.env.SITE_URL ?? `https://${APP_DOMAIN}`;

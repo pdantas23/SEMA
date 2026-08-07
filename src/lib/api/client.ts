@@ -1,5 +1,5 @@
 /**
- * Cliente HTTP do front → API (api.sema.adv.br).
+ * Cliente HTTP do front → API (api.senma.adv.br).
  * Substitui o acesso direto ao Supabase no browser.
  *
  * - Leituras públicas: apiGet (sem auth).

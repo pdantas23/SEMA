@@ -27,7 +27,7 @@ interface LoginResponse {
 }
 
 /**
- * Autenticação do admin via API (api.sema.adv.br).
+ * Autenticação do admin via API (api.senma.adv.br).
  * O browser não fala mais com o Supabase: login/refresh/validação passam pela
  * API, que confere o papel 'admin' em profiles_sema.
  */

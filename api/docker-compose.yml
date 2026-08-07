@@ -12,9 +12,9 @@ services:
       - "3001:3001"
     environment:
       PORT: 3001
-      APP_DOMAIN: ${APP_DOMAIN:-sema.adv.br}
-      SITE_URL: ${SITE_URL:-https://sema.adv.br}
-      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://sema.adv.br,https://www.sema.adv.br}
+      APP_DOMAIN: ${APP_DOMAIN:-senma.adv.br}
+      SITE_URL: ${SITE_URL:-https://senma.adv.br}
+      ALLOWED_ORIGINS: ${ALLOWED_ORIGINS:-https://senma.adv.br,https://www.senma.adv.br}
       SUPABASE_URL: ${SUPABASE_URL}
       SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY}
       SUPABASE_SERVICE_ROLE_KEY: ${SUPABASE_SERVICE_ROLE_KEY}

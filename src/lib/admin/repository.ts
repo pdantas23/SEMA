@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * Camada de escrita (CRUD) do admin — agora via API (api.sema.adv.br).
+ * Camada de escrita (CRUD) do admin — agora via API (api.senma.adv.br).
  * O browser NÃO acessa mais o Supabase direto: tudo passa pela API, que
  * detém a service-role. As assinaturas são as mesmas de antes (as páginas
  * do admin não mudam).

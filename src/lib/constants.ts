@@ -11,8 +11,8 @@ export const SITE = {
   description:
     "Escritório de advocacia técnico e especializado em Direito Tributário, Empresarial e Ambiental, com atuação voltada a grandes empresas e ao agronegócio no Piauí, Maranhão e em todo o Brasil.",
   // URL de produção (domínio raiz). Configurável via NEXT_PUBLIC_SITE_URL.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://sema.adv.br",
-  slug: "sema",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://senma.adv.br",
+  slug: "senma",
 } as const;
 
 export const CONTACT = {

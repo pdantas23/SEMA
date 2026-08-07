@@ -2,8 +2,8 @@ import type { NextConfig } from "next";
 
 /**
  * SITE ESTÁTICO (Hostinger) — output export.
- * O domínio agora é raiz (sema.adv.br), então NÃO há basePath.
- * Todo dado vem da API (api.sema.adv.br) via NEXT_PUBLIC_API_URL.
+ * O domínio agora é raiz (senma.adv.br), então NÃO há basePath.
+ * Todo dado vem da API (api.senma.adv.br) via NEXT_PUBLIC_API_URL.
  */
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 

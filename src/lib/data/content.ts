@@ -12,7 +12,7 @@ import type {
 
 /**
  * Camada de acesso a dados (leitura pública + contato).
- * Agora consome a API (api.sema.adv.br) em vez do Supabase direto.
+ * Agora consome a API (api.senma.adv.br) em vez do Supabase direto.
  * Contrato (assinaturas) preservado para todas as páginas/components.
  *
  * Tolerante a falha: se a API estiver indisponível, retorna defaults seguros
